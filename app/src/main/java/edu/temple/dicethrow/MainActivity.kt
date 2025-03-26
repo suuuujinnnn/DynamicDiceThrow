@@ -48,5 +48,12 @@ class MainActivity : AppCompatActivity(), ButtonFragment.ButtonInterface {
     /* TODO 2: switch fragments if portrait (no need to switch fragments if Landscape)
         */
     // Remember to place Fragment transactions on BackStack so then can be reversed
-
+    override fun buttonClicked() {
+        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            supportFragmentManager.commit {
+                replace(R.id.container1, DieFragment())
+                addToBackStack("DIE_FRAGMENT")
+            }
+        }
+    }
 }
